@@ -29,7 +29,7 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Home</Link>
+                <Link to="/home">Home</Link>
               </li>
               <li>
                 <Link>Courses</Link>
@@ -49,7 +49,9 @@ const Header = () => {
         <div className="navbar-end hidden lg:flex mr-3">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link className="mr-3">Home</Link>
+              <Link to="/home" className="mr-3">
+                Home
+              </Link>
             </li>
             <li>
               <Link className="mr-3">Courses</Link>

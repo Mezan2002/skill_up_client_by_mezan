@@ -45,7 +45,7 @@ const Login = () => {
           <button className="btn btn-primary w-full mt-10 ">Login</button>
           <h4 className="my-10">
             Don't have an account?{" "}
-            <Link to="/signUp" className="underline">
+            <Link to="/register" className="underline">
               Create a new account
             </Link>
           </h4>
