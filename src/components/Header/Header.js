@@ -68,11 +68,11 @@ const Header = () => {
             <button className="btn btn-primary rounded-full mr-3">
               Register
             </button>
-            <label className="swap swap-rotate mr-3">
+            <label className="swap swap-rotate mr-5">
               <input type="checkbox" />
 
               <svg
-                className="swap-on fill-current w-7 h-7"
+                className="swap-off fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -80,7 +80,7 @@ const Header = () => {
               </svg>
 
               <svg
-                className="swap-off fill-current w-7 h-7"
+                className="swap-on fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
