@@ -2,11 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Register = () => {
+  const { googleSignIn, facebookSignIn } = useContext(AuthContext);
   const handleSubmit = (event) => {};
-  const handleGoogleLogIn = () => {};
-  const handleFacebookLogIn = () => {};
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+  const handleFacebookLogIn = () => {
+    facebookSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div>
