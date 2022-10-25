@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Courses from "../../components/Courses/Courses";
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
+import Page404 from "../../components/Page404/Page404";
 import Register from "../../components/Register/Register";
 import SelectedCourse from "../../components/SelectedCourse/SelectedCourse";
 import Main from "../../layout/Main/Main";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -47,6 +49,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>error page</h1>,
+    element: <Page404></Page404>,
   },
 ]);

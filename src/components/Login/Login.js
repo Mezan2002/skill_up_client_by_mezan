@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const { googleSignIn, facebookSignIn, logInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [error, setError] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,8 +17,10 @@ const Login = () => {
     const password = form.password.value;
     logInUser(email, password)
       .then((result) => {
+        setError("");
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
         form.reset();
       })
       .catch((error) => setError(error.message));

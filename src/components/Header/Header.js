@@ -77,7 +77,10 @@ const Header = () => {
         <div className="">
           <div className="flex items-center">
             {user && user?.uid ? (
-              <button onClick={handleSignOut} className="mr-3 btn btn-primary">
+              <button
+                onClick={handleSignOut}
+                className="mr-3 btn btn-primary rounded-full"
+              >
                 Log Out
               </button>
             ) : (
