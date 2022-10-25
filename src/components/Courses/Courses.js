@@ -1,11 +1,9 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Courses = () => {
-  return (
-    <div className="min-h-screen">
-      <h2>Hello from course</h2>
-    </div>
-  );
+  const courses = useLoaderData();
+  return <div className="min-h-screen">Courses ({courses.length})</div>;
 };
 
 export default Courses;
