@@ -3,6 +3,7 @@ import Courses from "../../components/Courses/Courses";
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
+import SelectedCourse from "../../components/SelectedCourse/SelectedCourse";
 import Main from "../../layout/Main/Main";
 
 export const routes = createBrowserRouter([
@@ -21,8 +22,17 @@ export const routes = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: async () => {
-          return fetch("http://localhost:5000/courses");
+        loader: () => {
+          return fetch("https://skill-up-server-by-mezan.vercel.app/courses");
+        },
+      },
+      {
+        path: "/courses/:id",
+        element: <SelectedCourse></SelectedCourse>,
+        loader: ({ params }) => {
+          return fetch(
+            `https://skill-up-server-by-mezan.vercel.app/courses/${params.id}`
+          );
         },
       },
       {
