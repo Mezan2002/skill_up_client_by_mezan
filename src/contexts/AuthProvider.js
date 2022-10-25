@@ -2,11 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import {
+  createUserWithEmailAndPassword,
   FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 import { useEffect } from "react";
@@ -27,6 +30,18 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, facebookProvider);
   };
 
+  const registerUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const logInUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = () => {
+    return signOut(auth);
+  };
+
   // set current user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -38,7 +53,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, googleSignIn, facebookSignIn };
+  const authInfo = {
+    user,
+    googleSignIn,
+    facebookSignIn,
+    registerUser,
+    logInUser,
+    logOut,
+  };
 
   return (
     <div>

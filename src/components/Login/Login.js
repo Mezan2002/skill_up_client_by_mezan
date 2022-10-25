@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const handleSubmit = (event) => {};
-  const handleGoogleLogIn = () => {};
-  const handleFacebookLogIn = () => {};
+  const { googleSignIn, facebookSignIn, logInUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    logInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => setError(error.message));
+  };
+
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
+  };
+  const handleFacebookLogIn = () => {
+    facebookSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
+  };
   return (
     <div className="min-h-screen mt-14">
       <div className="border border-gray-500 w-4/12 mx-auto rounded-xl py-20">
         <h2 className="text-3xl font-semibold mb-5">Login</h2>
-        {/* <p className="text-red-500 mb-5">{error.slice(10, 300)}</p> */}
+        <p className="text-red-500 mb-5">{error.slice(10, 300)}</p>
         <form onSubmit={handleSubmit} className="w-9/12 mx-auto">
           <div className="inputGroup ">
             <input
@@ -71,5 +101,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

@@ -4,17 +4,40 @@ import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { useState } from "react";
 
 const Register = () => {
-  const { googleSignIn, facebookSignIn } = useContext(AuthContext);
-  const handleSubmit = (event) => {};
+  const { googleSignIn, facebookSignIn, registerUser } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const fullName = form.fullName.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
+    if (password !== confirmPassword) {
+      return setError(
+        "firsbase: password is not matched with confirm password, please check it"
+      );
+    }
+    registerUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => setError(error.message));
+  };
   const handleGoogleLogIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
   const handleFacebookLogIn = () => {
     facebookSignIn()
@@ -22,7 +45,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error.message));
   };
   return (
     <div>
@@ -30,7 +53,7 @@ const Register = () => {
         <div className="min-h-screen mt-5">
           <div className="border border-gray-500 w-4/12 mx-auto rounded-xl py-10">
             <h2 className="text-3xl font-semibold mb-5">Create an Account</h2>
-            {/* <p className="text-red-500 mb-5">{error.slice(10, 300)}</p> */}
+            <p className="text-red-500 mb-5">{error.slice(10, 300)}</p>
             <form onSubmit={handleSubmit} className="w-9/12 mx-auto">
               <div className="inputGroup ">
                 <input

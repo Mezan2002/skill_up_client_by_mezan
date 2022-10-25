@@ -1,8 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "../../assets/images/skill up logo.png";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div className="navbar bg-base-100 container mx-auto">
@@ -68,16 +76,24 @@ const Header = () => {
         </div>
         <div className="">
           <div className="flex items-center">
-            <Link to="/login">
-              <button className="btn btn-primary rounded-full mr-3">
-                Login
+            {user && user?.uid ? (
+              <button onClick={handleSignOut} className="mr-3 btn btn-primary">
+                Log Out
               </button>
-            </Link>
-            <Link to="/register">
-              <button className="btn btn-primary rounded-full mr-3">
-                Register
-              </button>
-            </Link>
+            ) : (
+              <>
+                <Link to="/login">
+                  <button className="btn btn-primary rounded-full mr-3">
+                    Login
+                  </button>
+                </Link>
+                <Link to="/register">
+                  <button className="btn btn-primary rounded-full mr-3">
+                    Register
+                  </button>
+                </Link>
+              </>
+            )}
             <label className="swap swap-rotate mr-5">
               <input type="checkbox" />
 
