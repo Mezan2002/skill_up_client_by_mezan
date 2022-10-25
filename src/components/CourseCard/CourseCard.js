@@ -16,7 +16,7 @@ const CourseCard = ({ course }) => {
   } = course;
   console.log(course);
   return (
-    <div>
+    <div className="">
       <div className="card w-10/12 mx-auto bg-base-100 shadow-xl relative">
         <figure>
           <img className="h-72" src={courseImage} alt="Shoes" />
