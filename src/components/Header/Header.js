@@ -69,9 +69,11 @@ const Header = () => {
                 Login
               </button>
             </Link>
-            <button className="btn btn-primary rounded-full mr-3">
-              Register
-            </button>
+            <Link to="/register">
+              <button className="btn btn-primary rounded-full mr-3">
+                Register
+              </button>
+            </Link>
             <label className="swap swap-rotate mr-5">
               <input type="checkbox" />
 
