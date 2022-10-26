@@ -28,11 +28,11 @@ const SelectedCourse = () => {
   return (
     <div className="">
       <div
-        className="grid lg:grid-cols-4 grid-cols-1 lg:gap-x-4 container mx-auto mb-32 mt-10"
+        className="grid lg:grid-cols-4 grid-cols-1 lg:gap-x-4 container mx-auto mb-32"
         id="pageToDownload"
       >
         <div className="col-span-3">
-          <div className="card card-compact mx-auto bg-base-100 shadow-xl mt-10">
+          <div className="card card-compact mx-auto bg-base-100 shadow-xl mt-5">
             <figure>
               <img className="rounded-2xl" src={courseImage} alt="Shoes" />
             </figure>
@@ -88,7 +88,7 @@ const SelectedCourse = () => {
             </div>
           </div>
         </div>
-        <div className="lg:p-10 w-11/12 mx-auto lg:mt-0 mt-10 border shadow-md rounded-lg">
+        <div className="lg:p-10 w-11/12 mx-auto mt-8 border shadow-md rounded-lg">
           <div>
             <video
               className="w-full rounded-lg"

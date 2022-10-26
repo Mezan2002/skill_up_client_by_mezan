@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
 import { useContext } from "react";
