@@ -44,7 +44,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen mt-14">
-      <div className="border border-gray-500 w-4/12 mx-auto rounded-xl py-20">
+      <div className="border border-gray-500 w-11/12 lg:w-4/12 mx-auto rounded-xl py-20">
         <h2 className="text-3xl font-semibold mb-5">Login</h2>
         <p className="text-red-500 mb-5">{error.slice(10, 300)}</p>
         <form onSubmit={handleSubmit} className="w-9/12 mx-auto">

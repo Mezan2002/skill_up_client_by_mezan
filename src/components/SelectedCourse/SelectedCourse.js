@@ -25,11 +25,11 @@ const SelectedCourse = () => {
   } = selectedCourse;
   return (
     <div className="">
-      <div className="grid grid-cols-4 gap-x-4 container mx-auto mb-32 mt-10">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 container mx-auto mb-32 mt-10">
         <div className="col-span-3">
           <div className="card card-compact mx-auto bg-base-100 shadow-xl mt-10">
             <figure>
-              <img src={courseImage} alt="Shoes" />
+              <img className="rounded-2xl" src={courseImage} alt="Shoes" />
             </figure>
             <div className="flex justify-start my-10">
               <span className="badge ml-4 py-3">Development</span>
@@ -73,6 +73,7 @@ const SelectedCourse = () => {
                       <FaStar className="mr-3 text-yellow-400" />
                       <FaStar className="mr-3 text-yellow-400" />
                       <FaStar className="mr-3 text-yellow-400" />
+                      <FaStar className="mr-3 text-yellow-400" />
                     </span>
                   </p>
                 </div>
@@ -80,7 +81,7 @@ const SelectedCourse = () => {
             </div>
           </div>
         </div>
-        <div className="p-10 border shadow-md rounded-lg">
+        <div className="p-10 lg:mt-0 mt-10 border shadow-md rounded-lg">
           <div>
             <video
               className="w-full rounded-lg"

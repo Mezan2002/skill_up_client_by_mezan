@@ -18,7 +18,7 @@ const CourseCard = ({ course }) => {
   return (
     <Link className="w-full" to={`/courses/${id}`}>
       <div className="hover:text-red-500 duration-500">
-        <div className="card w-10/12 mx-auto bg-base-100 shadow-xl">
+        <div className="card w-full lg:w-10/12 mx-auto bg-base-100 shadow-xl">
           <div className="w-24 h-7 absolute top-6 left-[370px] text-white bg-rose-500 flex items-center justify-center text-lg rounded-full">
             <span>Price: {price}$</span>
           </div>
@@ -30,13 +30,13 @@ const CourseCard = ({ course }) => {
             />
           </figure>
           <div className="flex items-center  text-lg justify-between w-11/12">
-            <div className="flex items-center justify-center text-lg">
+            <div className="flex items-center lg:justify-center text-lg">
               <img
                 className="w-10 rounded-full ml-8 mt-5"
                 src={instractorImage}
                 alt=""
               />
-              <p className="mt-5 ml-3">{instractorName}</p>
+              <p className="mt-5 lg:ml-3">{instractorName}</p>
             </div>
             <div className="flex items-center justify-center text-lg mt-5">
               <span>

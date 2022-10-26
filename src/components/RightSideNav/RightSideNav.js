@@ -5,11 +5,11 @@ const RightSideNav = ({ course }) => {
   const { courseName, id } = course;
   return (
     <div>
-      <div className="w-full mb-5 rounded-md border border-gray-600 p-10">
-        <Link to={`/courses/${id}`} className="">
+      <Link to={`/courses/${id}`} className="">
+        <div className="w-full mb-5 hover:bg-black hover:text-white duration-500 rounded-md border border-gray-600 p-10">
           {courseName}
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

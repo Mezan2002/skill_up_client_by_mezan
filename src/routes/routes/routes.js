@@ -40,7 +40,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/purchase/:id",
-        element: <PurchasePage></PurchasePage>,
+        element: (
+          <PrivateRoute>
+            <PurchasePage></PurchasePage>
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(
             `https://skill-up-server-by-mezan.vercel.app/courses/${params.id}`
