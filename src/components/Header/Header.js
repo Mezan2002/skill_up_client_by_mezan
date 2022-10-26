@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "../../assets/images/skill up logo.png";
 import { AuthContext } from "../../contexts/AuthProvider";
+import UserIcon from "../../assets/images/icons/free-user-icon-3296-thumb.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -118,7 +119,16 @@ const Header = () => {
             </label>
             <div className="avatar">
               <div className="w-9 rounded-full">
-                <img src="https://placeimg.com/192/192/people" alt="" />
+                {user?.photoURL ? (
+                  <img
+                    title={user.displayName}
+                    className="cursor-pointer"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <img className="w-10" src={UserIcon} alt="" />
+                )}
               </div>
             </div>
           </div>
