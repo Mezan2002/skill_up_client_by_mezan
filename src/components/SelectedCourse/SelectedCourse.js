@@ -9,6 +9,7 @@ import {
   FaVideo,
 } from "react-icons/fa";
 import WelcomeVideo from "../../assets/videos/welcome_video.mp4";
+import ReactToPDFDownloader from "../ReactToPDFDownloder/ReactToPDFDownloader";
 
 const SelectedCourse = () => {
   const selectedCourse = useLoaderData();
@@ -23,9 +24,13 @@ const SelectedCourse = () => {
     student,
     timeDuration,
   } = selectedCourse;
+
   return (
     <div className="">
-      <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-x-4 container mx-auto mb-32 mt-10">
+      <div
+        className="grid lg:grid-cols-4 grid-cols-1 lg:gap-x-4 container mx-auto mb-32 mt-10"
+        id="pageToDownload"
+      >
         <div className="col-span-3">
           <div className="card card-compact mx-auto bg-base-100 shadow-xl mt-10">
             <figure>
@@ -37,7 +42,9 @@ const SelectedCourse = () => {
               <span className="badge ml-4 py-3">Programming</span>
             </div>
             <div className="card-body text-left">
-              <h2 className="lg:text-4xl text-xl font-bold">{courseName}</h2>
+              <div className="flex items-center justify-between">
+                <h2 className="lg:text-4xl text-xl font-bold">{courseName}</h2>
+              </div>
               <div className="my-10 block lg:flex items-center">
                 <div className="">
                   <p className="lg:text-lg flex text-sm font-semibold text-primary">
@@ -94,6 +101,10 @@ const SelectedCourse = () => {
                 purchase
               </button>
             </Link>
+            <ReactToPDFDownloader
+              roofElementId="pageToDownload"
+              downloadFileName={courseName}
+            ></ReactToPDFDownloader>
           </div>
           <div className="mt-10">
             <div className="flex items-center">

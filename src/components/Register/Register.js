@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
 import { useContext } from "react";
@@ -7,8 +7,9 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { useState } from "react";
 
 const Register = () => {
-  const { googleSignIn, facebookSignIn, registerUser } =
+  const { googleSignIn, facebookSignIn, registerUser, setPhotoAndName } =
     useContext(AuthContext);
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,14 +28,24 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        updateUserProfile(fullName, photoURL);
         form.reset();
+        navigate("/login");
       })
       .catch((error) => setError(error.message));
+  };
+  const updateUserProfile = (name, photoURL) => {
+    const profileInfo = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    setPhotoAndName(profileInfo);
   };
   const handleGoogleLogIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
+        navigate("/login");
         console.log(user);
       })
       .catch((error) => setError(error.message));
@@ -43,6 +54,7 @@ const Register = () => {
     facebookSignIn()
       .then((result) => {
         const user = result.user;
+        navigate("/login");
         console.log(user);
       })
       .catch((error) => setError(error.message));

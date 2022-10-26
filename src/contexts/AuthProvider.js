@@ -10,6 +10,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 import { useEffect } from "react";
@@ -46,6 +47,10 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const setPhotoAndName = (profileInfo) => {
+    return updateProfile(auth.currentUser, profileInfo);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -70,6 +75,7 @@ const AuthProvider = ({ children }) => {
     facebookSignIn,
     registerUser,
     logInUser,
+    setPhotoAndName,
     logOut,
   };
 
