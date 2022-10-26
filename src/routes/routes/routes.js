@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../../components/Blog/Blog";
 import Courses from "../../components/Courses/Courses";
+import FAQ from "../../components/FAQ/FAQ";
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
 import Page404 from "../../components/Page404/Page404";
@@ -50,6 +52,14 @@ export const routes = createBrowserRouter([
             `https://skill-up-server-by-mezan.vercel.app/courses/${params.id}`
           );
         },
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
       },
       {
         path: "/login",

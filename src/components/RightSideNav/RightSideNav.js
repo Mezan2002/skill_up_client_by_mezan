@@ -6,7 +6,7 @@ const RightSideNav = ({ course }) => {
   return (
     <div>
       <Link to={`/courses/${id}`} className="">
-        <div className="w-full mb-5 hover:bg-black hover:text-white duration-500 rounded-md border border-gray-600 p-10">
+        <div className="w-full mb-5 hover:bg-black hover:text-white duration-500 rounded-md border border-gray-600 p-3 lg:p-10">
           {courseName}
         </div>
       </Link>

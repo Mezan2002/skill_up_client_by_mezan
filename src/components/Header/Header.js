@@ -44,10 +44,10 @@ const Header = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               <li>
-                <Link>FAQ</Link>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
-                <Link>Blog</Link>
+                <Link to="/blog">Blog</Link>
               </li>
               {user && user?.uid ? (
                 <li
@@ -57,18 +57,18 @@ const Header = () => {
                   Log Out
                 </li>
               ) : (
-                <>
+                <div className="block lg:hidden">
                   <Link to="/login">
-                    <li className="btn btn-primary rounded-full mr-3 hidden lg:block">
+                    <button className="btn btn-primary btn-block mt-2 rounded-full mr-3 lg:hidden">
                       Login
-                    </li>
+                    </button>
                   </Link>
                   <Link to="/register">
-                    <li className="btn btn-primary rounded-full mr-3 hidden lg:block">
+                    <button className="btn btn-primary btn-block mt-2 rounded-full mr-3 lg:hidden">
                       Register
-                    </li>
+                    </button>
                   </Link>
-                </>
+                </div>
               )}
             </ul>
           </div>
@@ -89,10 +89,14 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className="mr-3">FAQ</Link>
+              <Link className="mr-3" to="/faq">
+                FAQ
+              </Link>
             </li>
             <li>
-              <Link className="mr-3">Blog</Link>
+              <Link className="mr-3" to="/blog">
+                Blog
+              </Link>
             </li>
           </ul>
         </div>

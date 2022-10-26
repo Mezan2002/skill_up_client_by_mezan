@@ -30,6 +30,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => setError(error.message));
@@ -38,6 +39,7 @@ const Login = () => {
     facebookSignIn()
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => setError(error.message));

@@ -25,7 +25,7 @@ const SelectedCourse = () => {
   } = selectedCourse;
   return (
     <div className="">
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-x-4 container mx-auto mb-32 mt-10">
+      <div className="grid lg:grid-cols-4 grid-cols-1 lg:gap-x-4 container mx-auto mb-32 mt-10">
         <div className="col-span-3">
           <div className="card card-compact mx-auto bg-base-100 shadow-xl mt-10">
             <figure>
@@ -37,30 +37,30 @@ const SelectedCourse = () => {
               <span className="badge ml-4 py-3">Programming</span>
             </div>
             <div className="card-body text-left">
-              <h2 className="text-4xl font-bold">{courseName}</h2>
-              <div className="my-10 flex items-center">
-                <div>
-                  <p className="text-lg font-semibold text-primary">
+              <h2 className="lg:text-4xl text-xl font-bold">{courseName}</h2>
+              <div className="my-10 block lg:flex items-center">
+                <div className="">
+                  <p className="lg:text-lg flex text-sm font-semibold text-primary">
                     Instractor:
-                    <span className="text-black border-r-2 border-black pr-5">
+                    <span className="text-black lg:border-r-2 lg:border-black pr-5">
                       {" "}
                       {instractorName}
                     </span>
                   </p>
                 </div>
                 <div>
-                  <p className="flex items-center pl-5 text-lg font-semibold text-primary">
+                  <p className="flex items-center lg:pl-5 text-lg font-semibold text-primary">
                     <FaTag className="mr-3" />
-                    <span className="text-black border-r-2 border-black pr-5">
+                    <span className="text-black lg:border-r-2 lg:border-black pr-5">
                       {" "}
                       Design and Development
                     </span>
                   </p>
                 </div>
                 <div>
-                  <p className="flex items-center pl-5 text-lg font-semibold text-primary">
+                  <p className="flex items-center lg:pl-5 text-lg font-semibold text-primary">
                     <FaClock className="mr-3" />
-                    <span className="text-black border-r-2 border-black pr-5">
+                    <span className="text-black lg:border-r-2 lg:border-black pr-5">
                       {" "}
                       20 december 2023
                     </span>
@@ -81,7 +81,7 @@ const SelectedCourse = () => {
             </div>
           </div>
         </div>
-        <div className="p-10 lg:mt-0 mt-10 border shadow-md rounded-lg">
+        <div className="lg:p-10 w-11/12 mx-auto lg:mt-0 mt-10 border shadow-md rounded-lg">
           <div>
             <video
               className="w-full rounded-lg"
@@ -98,35 +98,35 @@ const SelectedCourse = () => {
           <div className="mt-10">
             <div className="flex items-center">
               <p>
-                <FaUser className="mr-5"></FaUser>
+                <FaUser className="lg:mr-5 lg:mx-0 mx-5"></FaUser>
               </p>
               <h4>Instractor : {instractorName}</h4>
             </div>
             <div className="divider"></div>
             <div className="flex items-center">
               <p>
-                <FaUserGraduate className="mr-5"></FaUserGraduate>
+                <FaUserGraduate className="lg:mr-5 lg:mx-0 mx-5"></FaUserGraduate>
               </p>
               <h4>student enrolled : {student}</h4>
             </div>
             <div className="divider"></div>
             <div className="flex items-center">
               <p>
-                <FaVideo className="mr-5"></FaVideo>
+                <FaVideo className="lg:mr-5 lg:mx-0 mx-5"></FaVideo>
               </p>
               <h4>videos : {lessons}</h4>
             </div>
             <div className="divider"></div>
             <div className="flex items-center">
               <p>
-                <FaClock className="mr-5"></FaClock>
+                <FaClock className="lg:mr-5 lg:mx-0 mx-5"></FaClock>
               </p>
               <h4>Duration : {timeDuration} hours</h4>
             </div>
             <div className="divider"></div>
             <div className="flex items-center">
               <p>
-                <FaStar className="mr-5"></FaStar>
+                <FaStar className="lg:mr-5 lg:mx-0 mx-5"></FaStar>
               </p>
               <h4>Ratings : {rating} star</h4>
             </div>

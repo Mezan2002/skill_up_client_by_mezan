@@ -1,8 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { FaClock, FaRegStickyNote, FaStar, FaUser } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const PurchasePage = () => {
+  const { user } = useContext(AuthContext);
   const purchasedCourse = useLoaderData();
   const {
     courseName,
@@ -17,7 +20,9 @@ const PurchasePage = () => {
   return (
     <div className="min-h-screen">
       <div className="w-11/12 mx-auto">
-        <h4 className="text-xl font-bold mt-10">Congratulations!</h4>
+        <h4 className="text-xl font-bold mt-10">
+          Congratulations! {user?.displayName}
+        </h4>
         <h2 className="text-2xl font-bold mt-5">
           Your are purchased {courseName} Course
         </h2>
