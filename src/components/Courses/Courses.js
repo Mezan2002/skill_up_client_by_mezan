@@ -16,13 +16,15 @@ const Courses = () => {
             ))}
           </div>
         </div>
-        <div className="py-10 border border-gray-600 rounded-md px-6 order-first lg:order-last">
-          <h2 className="text-2xl font-bold pb-7">
-            Our Courses ({courses.length})
-          </h2>
-          {courses.map((course) => (
-            <RightSideNav key={course.id} course={course}></RightSideNav>
-          ))}
+        <div className="py-10 px-6 order-first lg:order-last">
+          <div className="border border-gray-600 p-2 rounded-md">
+            <h2 className="text-2xl font-bold py-7">
+              Our Courses ({courses.length})
+            </h2>
+            {courses.map((course) => (
+              <RightSideNav key={course.id} course={course}></RightSideNav>
+            ))}
+          </div>
         </div>
       </div>
     </div>
