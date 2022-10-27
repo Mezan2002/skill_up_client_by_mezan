@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LogoImage from "../../assets/images/skill up logo.png";
 import { AuthContext } from "../../contexts/AuthProvider";
-import UserIcon from "../../assets/images/icons/free-user-icon-3296-thumb.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { FaUser } from "react-icons/fa";
@@ -142,7 +141,7 @@ const Header = () => {
             )}
           </div>
         </div>
-        <div className="flex items-center pl-5 pr-5 lg:pr-10">
+        <div className="flex items-center pl-5 pr-12 lg:pr-10">
           <label className="swap swap-rotate mr-5">
             <input type="checkbox" />
             <svg
@@ -167,7 +166,7 @@ const Header = () => {
               {user?.photoURL ? (
                 <img
                   title={user.displayName}
-                  className="w-16 rounded-full cursor-pointer"
+                  className="lg:w-16 w-10 rounded-full cursor-pointer"
                   src={user.photoURL}
                   alt=""
                 />
