@@ -141,7 +141,7 @@ const Header = () => {
             )}
           </div>
         </div>
-        <div className="flex items-center pl-5 pr-12 lg:pr-10">
+        <div className="flex items-center pl-5 pr-5 lg:pr-10">
           <label className="swap swap-rotate mr-5">
             <input type="checkbox" />
             <svg
