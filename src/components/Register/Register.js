@@ -2,13 +2,19 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
+import GitHubIcon from "../../assets/images/icons/github.png";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useState } from "react";
 
 const Register = () => {
-  const { googleSignIn, facebookSignIn, registerUser, setPhotoAndName } =
-    useContext(AuthContext);
+  const {
+    googleSignIn,
+    facebookSignIn,
+    gitHubSignIn,
+    registerUser,
+    setPhotoAndName,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const handleSubmit = (event) => {
@@ -60,12 +66,25 @@ const Register = () => {
       })
       .catch((error) => setError(error.message));
   };
+
+  const handleGitHubLogIn = () => {
+    gitHubSignIn()
+      .then((result) => {
+        const user = result.user;
+        navigate("/login");
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
+  };
+
   return (
     <div>
       <div>
         <div className="min-h-screen mt-5">
           <div className="border border-gray-500 w-11/12 lg:w-4/12 mx-auto rounded-xl py-10">
-            <h2 className="text-3xl font-semibold mb-5">Create an Account</h2>
+            <h2 className="text-3xl font-semibold mb-5 pb-5">
+              Create an Account
+            </h2>
             <p className="text-red-500 mb-5">{error.slice(10, 300)}</p>
             <form onSubmit={handleSubmit} className="w-9/12 mx-auto">
               <div className="inputGroup ">
@@ -124,17 +143,24 @@ const Register = () => {
               <div className="flex justify-center mt-5">
                 <div
                   onClick={handleGoogleLogIn}
-                  className="border mr-2 px-4 py-2 rounded-xl cursor-pointer"
+                  className="border w-24 h-24 flex justify-center items-center flex-col mr-2 px-4 py-2 rounded-full cursor-pointer"
                 >
-                  <img src={GoogleIcon} alt="" />
+                  <img className="w-10 mx-auto" src={GoogleIcon} alt="" />
                   <p className="">Google</p>
                 </div>
                 <div
                   onClick={handleFacebookLogIn}
-                  className="border mr-2 px-4 py-2 rounded-xl cursor-pointer"
+                  className="border w-24 h-24 flex justify-center items-center flex-col mr-2 px-4 py-2 rounded-full cursor-pointer"
                 >
-                  <img className="pl-2.5" src={FacebookIcon} alt="" />
+                  <img className="w-10 mx-auto" src={FacebookIcon} alt="" />
                   <p className="">Facebook</p>
+                </div>
+                <div
+                  onClick={handleGitHubLogIn}
+                  className="border w-24 h-24 flex justify-center items-center flex-col mr-2 px-4 py-2 rounded-full cursor-pointer"
+                >
+                  <img className="w-10 mx-auto" src={GitHubIcon} alt="" />
+                  <p className="">GitHub</p>
                 </div>
               </div>
             </form>

@@ -68,7 +68,7 @@ const Header = () => {
               {user && user?.uid ? (
                 <li
                   onClick={handleSignOut}
-                  className="mr-3 btn btn-primary rounded-full "
+                  className="mr-3 btn btn-primary rounded-full"
                 >
                   Log Out
                 </li>
@@ -121,19 +121,19 @@ const Header = () => {
             {user && user?.uid ? (
               <button
                 onClick={handleSignOut}
-                className="mr-3 btn btn-primary rounded-full hidden lg:block"
+                className="mr-8 btn btn-primary px-10 rounded-full hidden lg:block"
               >
                 Log Out
               </button>
             ) : (
               <>
                 <Link to="/login">
-                  <button className="btn btn-primary rounded-full mr-3 hidden lg:block">
+                  <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
                     Login
                   </button>
                 </Link>
                 <Link to="/register">
-                  <button className="btn btn-primary rounded-full mr-3 hidden lg:block">
+                  <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
                     Register
                   </button>
                 </Link>

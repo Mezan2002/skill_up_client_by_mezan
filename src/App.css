@@ -6,11 +6,13 @@
   --text--color: rgb(21, 21, 21);
   --paragraph--color: #555;
   --bg--color: #fff;
+  --card--hover: tomato;
 }
 .darkTheme {
   --text--color: rgb(255, 255, 255);
   --paragraph--color: rgb(240, 240, 240);
   --bg--color: #111b20;
+  --card--hover: rgb(255, 159, 142);
 }
 h2,
 h1,
@@ -46,6 +48,9 @@ input {
 }
 .card {
   background-color: var(--bg--color);
+}
+.courseCard:hover {
+  color: var(--card--hover);
 }
 .rightSideNav {
   color: var(--paragraph--color);
