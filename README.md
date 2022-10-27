@@ -43,3 +43,5 @@
 * Some more functionalities added on the login and the register page.
 
 * We use the firebase authentications for log in user , register user , google login and facebook login
+
+* Dark Mode Added
