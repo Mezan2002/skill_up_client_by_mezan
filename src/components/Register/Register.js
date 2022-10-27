@@ -13,6 +13,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
     const fullName = form.fullName.value;
     const photoURL = form.photoURL.value;
@@ -73,6 +74,7 @@ const Register = () => {
                   type="text"
                   name="fullName"
                   placeholder="Full Name"
+                  required
                 />
               </div>
               <div className="inputGroup ">
@@ -81,6 +83,7 @@ const Register = () => {
                   type="text"
                   name="photoURL"
                   placeholder="Photo URL"
+                  required
                 />
               </div>
               <div className="inputGroup ">
@@ -89,6 +92,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Username or Email"
+                  required
                 />
               </div>
               <div className="inputGroup ">
@@ -97,6 +101,7 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
               <div className="inputGroup ">
@@ -105,6 +110,7 @@ const Register = () => {
                   type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
+                  required
                 />
               </div>
               <button className="btn btn-primary w-full mt-10 ">Sign Up</button>

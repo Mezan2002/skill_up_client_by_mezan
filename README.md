@@ -20,6 +20,8 @@
 
 * jspdf
 
+* react hot toast
+
 ## Steps:
 
 - At First, we create a navbar and home page .

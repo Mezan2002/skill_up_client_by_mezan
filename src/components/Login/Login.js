@@ -3,15 +3,19 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/images/icons/icons8-google-48.png";
 import FacebookIcon from "../../assets/images/icons/icons8-facebook-48.png";
 import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { googleSignIn, facebookSignIn, logInUser } = useContext(AuthContext);
+  const { googleSignIn, facebookSignIn, logInUser, resetPassword } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [error, setError] = useState("");
+  const [userEmail, setUserEmail] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
+    event.stopPropagation();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -22,6 +26,25 @@ const Login = () => {
         console.log(user);
         navigate(from, { replace: true });
         form.reset();
+      })
+      .catch((error) => setError(error.message));
+  };
+
+  const emailOnBlue = (event) => {
+    const email = event.target.value;
+    setUserEmail(email);
+  };
+  const handleResetPassword = () => {
+    if (!userEmail) {
+      toast.error("please provide an email to reset your password");
+      return;
+    }
+    resetPassword(userEmail)
+      .then(() => {
+        setError("");
+        toast.success(
+          "please check your email or your spam message on email to reset your password"
+        );
       })
       .catch((error) => setError(error.message));
   };
@@ -45,7 +68,7 @@ const Login = () => {
       .catch((error) => setError(error.message));
   };
   return (
-    <div className="min-h-screen mt-14">
+    <div className="min-h-screen mt-8">
       <div className="border border-gray-500 w-11/12 lg:w-4/12 mx-auto rounded-xl py-20">
         <h2 className="text-3xl font-semibold mb-5">Login</h2>
         <p className="text-red-500 mb-5">{error.slice(10, 300)}</p>
@@ -55,7 +78,9 @@ const Login = () => {
               className="border-b-2 w-full py-3 pl-2 focus:outline-none text-xl"
               type="email"
               name="email"
+              onBlur={emailOnBlue}
               placeholder="Username or Email"
+              required
             />
           </div>
           <div className="inputGroup ">
@@ -74,9 +99,9 @@ const Login = () => {
               </label>
             </div>
             <div>
-              <Link to="" className="underline">
+              <button onClick={handleResetPassword} className="underline">
                 Forgot Password
-              </Link>
+              </button>
             </div>
           </div>
           <button className="btn btn-primary w-full mt-10 ">Login</button>
