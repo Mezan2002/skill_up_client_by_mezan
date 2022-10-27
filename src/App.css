@@ -6,13 +6,11 @@
   --text--color: rgb(21, 21, 21);
   --paragraph--color: #555;
   --bg--color: #fff;
-  --card--hover: tomato;
 }
 .darkTheme {
   --text--color: rgb(255, 255, 255);
   --paragraph--color: rgb(240, 240, 240);
   --bg--color: #111b20;
-  --card--hover: rgb(255, 159, 142);
 }
 h2,
 h1,
@@ -60,4 +58,11 @@ input {
 }
 button {
   color: var(--paragraph--color);
+}
+.dropdown-content,
+.card-body {
+  background-color: var(--text--color);
+}
+.card-body h3 {
+  color: var(--bg--color);
 }
