@@ -75,7 +75,7 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="w-9/12 mx-auto">
           <div className="inputGroup ">
             <input
-              className="border-b-2 w-full py-3 pl-2 focus:outline-none text-xl"
+              className="border-b-2 inputForm w-full py-3 pl-2 focus:outline-none text-xl"
               type="email"
               name="email"
               onBlur={emailOnBlue}
@@ -85,7 +85,7 @@ const Login = () => {
           </div>
           <div className="inputGroup ">
             <input
-              className="border-b-2 w-full py-3 pl-2 focus:outline-none text-xl mt-10"
+              className="border-b-2 inputForm w-full py-3 pl-2 focus:outline-none text-xl mt-10"
               type="password"
               name="password"
               placeholder="Password"

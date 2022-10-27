@@ -2,37 +2,59 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.lightTheme {
+  --text--color: rgb(21, 21, 21);
+  --paragraph--color: #555;
+  --bg--color: #fff;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.darkTheme {
+  --text--color: rgb(255, 255, 255);
+  --paragraph--color: rgb(240, 240, 240);
+  --bg--color: #111b20;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2,
+h1,
+h3,
+h4 {
+  color: var(--text--color);
 }
-
-.App-link {
-  color: #61dafb;
+p {
+  color: var(--paragraph--color);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background-color: var(--bg--color);
+}
+.card-body {
+  background-color: var(--bg--color);
+}
+.card-body span {
+  color: var(--paragraph--color);
+}
+.navbar {
+  background-color: var(--bg--color);
+  color: var(--paragraph--color);
+}
+label {
+  color: var(--paragraph--color);
+}
+input {
+  background-color: var(--bg--color);
+  color: var(--paragraph--color);
+}
+.divider {
+  color: var(--text--color);
+}
+.card {
+  /* color: var(--bg--color); */
+  background-color: var(--bg--color);
+  border: 1px solid var(--text--color);
+}
+.rightSideNav {
+  color: var(--paragraph--color);
+}
+.dropdown ul {
+  background-color: var(--bg--color);
+}
+button {
+  color: var(--paragraph--color);
 }

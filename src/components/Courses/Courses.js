@@ -17,7 +17,7 @@ const Courses = () => {
           </div>
         </div>
         <div className="py-10 px-6 order-first lg:order-last">
-          <div className="border border-gray-600 p-2 rounded-md">
+          <div className="border border-gray-600 p-2 pb-20 rounded-md">
             <h2 className="text-2xl font-bold py-7">
               Our Courses ({courses.length})
             </h2>

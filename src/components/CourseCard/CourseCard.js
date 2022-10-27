@@ -29,7 +29,7 @@ const CourseCard = ({ course }) => {
               alt="Shoes"
             />
           </figure>
-          <div className="flex items-center  text-lg justify-between w-11/12">
+          <div className="flex cardTop items-center  text-lg justify-between w-11/12">
             <div className="flex items-center lg:justify-center text-lg">
               <img
                 className="w-10 rounded-full ml-8 mt-5"
