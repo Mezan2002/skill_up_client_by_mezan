@@ -59,10 +59,12 @@ input {
 button {
   color: var(--paragraph--color);
 }
-.dropdown-content,
-.card-body {
+.dropdown-content {
   background-color: var(--text--color);
 }
 .card-body h3 {
   color: var(--bg--color);
+}
+.userCard {
+  background-color: var(--text--color);
 }

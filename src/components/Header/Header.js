@@ -118,27 +118,16 @@ const Header = () => {
         </div>
         <div className="">
           <div className="flex items-center">
-            {user && user?.uid ? (
-              <button
-                onClick={handleSignOut}
-                className="mr-8 btn btn-primary px-10 rounded-full hidden lg:block"
-              >
-                Log Out
+            <Link to="/login">
+              <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
+                Login
               </button>
-            ) : (
-              <>
-                <Link to="/login">
-                  <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
-                    Login
-                  </button>
-                </Link>
-                <Link to="/register">
-                  <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
-                    Register
-                  </button>
-                </Link>
-              </>
-            )}
+            </Link>
+            <Link to="/register">
+              <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
+                Register
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex items-center pl-5 pr-5 lg:pr-10">
@@ -166,7 +155,7 @@ const Header = () => {
               {user?.photoURL ? (
                 <img
                   title={user.displayName}
-                  className="lg:w-16 w-10 rounded-full cursor-pointer"
+                  className="lg:w-20 w-10 rounded-full cursor-pointer"
                   src={user.photoURL}
                   alt=""
                 />
@@ -179,22 +168,30 @@ const Header = () => {
                 </div>
               )}
             </label>
-            <div
-              tabIndex={0}
-              className="dropdown-content card card-compact w-64 p-2 shadow bg-dark text-dark-content"
-            >
-              <div className="card-body">
-                <img
-                  className="w-1/2 rounded-full mx-auto"
-                  src={user?.photoURL}
-                  alt=""
-                />
-                <h3 className="card-title">{user?.displayName}</h3>
-                <button className="btn btn-light rounded-full">
-                  View Profile
-                </button>
+            {user?.uid ? (
+              <div
+                tabIndex={0}
+                className="dropdown-content card card-compact w-64 p-2 shadow bg-dark text-dark-content"
+              >
+                <div className="card-body userCard">
+                  <img
+                    className="w-1/2 rounded-full mx-auto"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                  <h3 className="card-title">{user?.displayName}</h3>
+                  <button className="btn btn-light rounded-full">
+                    View Profile
+                  </button>
+                  <button
+                    onClick={handleSignOut}
+                    className="mr-8 btn btn-primary btn-block px-10 rounded-full hidden lg:block"
+                  >
+                    Log Out
+                  </button>
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>
