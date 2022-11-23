@@ -117,18 +117,20 @@ const Header = () => {
           </ul>
         </div>
         <div className="">
-          <div className="flex items-center">
-            <Link to="/login">
-              <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
-                Login
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
-                Register
-              </button>
-            </Link>
-          </div>
+          {user && user?.uid ? null : (
+            <div className="flex items-center">
+              <Link to="/login">
+                <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
+                  Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
+                  Register
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
         <div className="flex items-center pl-5 pr-5 lg:pr-10">
           <label className="swap swap-rotate mr-5">
@@ -155,7 +157,7 @@ const Header = () => {
               {user?.photoURL ? (
                 <img
                   title={user.displayName}
-                  className="lg:w-20 w-10 rounded-full cursor-pointer"
+                  className="lg:w-14 w-10 rounded-full cursor-pointer"
                   src={user.photoURL}
                   alt=""
                 />
