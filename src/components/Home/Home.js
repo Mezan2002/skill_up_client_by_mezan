@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <div className="hero min-h-screen">
+      <div className="hero min-h-[80vh]">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://media1.giphy.com/media/3oEjHOUcNRKgpqTHiM/giphy.gif"

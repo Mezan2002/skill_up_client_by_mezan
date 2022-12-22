@@ -5,7 +5,6 @@ import LogoImage from "../../assets/images/skill up logo.png";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
-import { FaUser } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -117,7 +116,14 @@ const Header = () => {
           </ul>
         </div>
         <div className="">
-          {user && user?.uid ? null : (
+          {user && user?.uid ? (
+            <button
+              onClick={handleSignOut}
+              className="mr-8 btn btn-primary btn-block px-10 rounded-full hidden lg:block"
+            >
+              Log Out
+            </button>
+          ) : (
             <div className="flex items-center">
               <Link to="/login">
                 <button className="btn btn-primary px-10 rounded-full mr-3 hidden lg:block">
@@ -154,20 +160,13 @@ const Header = () => {
           </label>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="">
-              {user?.photoURL ? (
+              {user?.photoURL && (
                 <img
                   title={user.displayName}
                   className="lg:w-14 w-10 rounded-full cursor-pointer"
                   src={user.photoURL}
                   alt=""
                 />
-              ) : (
-                <div className="bg-slate-400 p-2 rounded-full">
-                  <p>
-                    {" "}
-                    <FaUser className="w-6 h-6 text-black"></FaUser>{" "}
-                  </p>
-                </div>
               )}
             </label>
             {user?.uid ? (
