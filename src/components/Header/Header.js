@@ -160,14 +160,14 @@ const Header = () => {
           </label>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="">
-              {user?.photoURL && (
+              {user?.photoURL ? (
                 <img
                   title={user.displayName}
                   className="lg:w-14 w-10 rounded-full cursor-pointer"
                   src={user.photoURL}
                   alt=""
                 />
-              )}
+              ) : null}
             </label>
             {user?.uid ? (
               <div
